@@ -3,3 +3,5 @@ __pycache__/*
 TFCSD/PID/__pycache__/*
 TFCSD/PID/migrations/*
 TFCSD/TFCSD/__pycache__/*
+
+poetry.lock
