@@ -20,21 +20,6 @@
     grid-area: controladores;
 }
 
-.controlador input[type='radio']{
-    display: none;
-}
-
-.controlador label{
-    background-color: bisque;
-    padding: 10px;
-    border-radius: 2em;
-}
-
-.controlador input[type="radio"]:checked + label{
-    background-color: darkblue;
-    color: white;
-}
-
 .imagem{
     grid-area: imagem;
 }
@@ -49,21 +34,6 @@
     display: flex;
     flex-direction: column;
     gap: 2%;
-}
-
-.metodo input[type='radio']{
-    display: none;
-}
-
-.metodo label{
-    background-color: bisque;
-    padding: 10px;
-    border-radius: 2em;
-}
-
-.metodo input[type="radio"]:checked + label{
-    background-color: darkblue;
-    color: white;
 }
 
 .graficos{

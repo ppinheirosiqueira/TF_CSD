@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controladores</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/controlador.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="controlador">
+            <a href="{% url 'controlador' nome='nenhum' %}">Nenhum controlador</a>
+            <a href="{% url 'controlador' nome='p' %}">Controlador P</a>
+            <a href="{% url 'controlador' nome='pi' %}">Controlador PI</a>
+            <a href="{% url 'controlador' nome='pd' %}">Controlador PD</a>
+            <a href="{% url 'controlador' nome='pid' %}">Controlador PID</a>
+        </div>
+        <div class="imagem">
+            {% if nome == "nenhum" %}
+                <img src="{% static 'images\Nenhum.jpg' %}" alt="sistema">
+            {% elif nome == "p" %}
+                <img src="{% static 'images\P.jpg' %}" alt="sistema">
+            {% elif nome == "pi" %}
+                <img src="{% static 'images\PI.jpg' %}" alt="sistema">
+            {% elif nome == "pd" %}
+                <img src="{% static 'images\PD.jpg' %}" alt="sistema">
+            {% elif nome == "pid" %}
+                <img src="{% static 'images\PID.jpg' %}" alt="sistema">
+            {% else %}
+                Desculpe, mas não sabemos que controlador é esse
+            {% endif %}
+        </div>
+        <div class="graficos"></div>
+    </div>
+</body>
+</html>
