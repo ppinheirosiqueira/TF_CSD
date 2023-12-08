@@ -1,0 +1,71 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    padding: 2%;
+    width: 96%;
+    height: 96%;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: 1fr 5fr 5fr;
+    grid-template-areas: 'controladores controladores'
+    'imagem metodo'
+    'grafico grafico';
+}
+
+.controlador{
+    grid-area: controladores;
+}
+
+.controlador input[type='radio']{
+    display: none;
+}
+
+.controlador label{
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 2em;
+}
+
+.controlador input[type="radio"]:checked + label{
+    background-color: darkblue;
+    color: white;
+}
+
+.imagem{
+    grid-area: imagem;
+}
+
+.imagem img{
+    width: 100%;
+    height: 100%;
+}
+
+.metodo{
+    grid-area: metodo;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+
+.metodo input[type='radio']{
+    display: none;
+}
+
+.metodo label{
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 2em;
+}
+
+.metodo input[type="radio"]:checked + label{
+    background-color: darkblue;
+    color: white;
+}
+
+.graficos{
+    grid-area: grafico;
+}

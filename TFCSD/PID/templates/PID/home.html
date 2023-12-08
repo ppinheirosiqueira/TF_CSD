@@ -1,18 +1,32 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
+    <title>Controladores</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/home.css' %}">
 </head>
 <body>
-    {% if variavel %}
-        Oi 1
-    {% else %}
-        Oi 2
-    {% endif %}
-    Aqui vai ficar tudo
-
-    <button onclick = ""></button>
+    <div class="container">
+        <div class="controlador">
+            <input type="radio" name="pid" id="nenhum" checked><label for="nenhum">Nenhum controlador</label>
+            {% comment %} <input type="radio" name="pid" id="p"><label for="p">Controlador P</label>
+            <input type="radio" name="pid" id="pi"><label for="pi">Controlador PI</label>
+            <input type="radio" name="pid" id="pd"><label for="pd">Controlador PD</label> {% endcomment %}
+            <input type="radio" name="pid" id="pid"><label for="pid">Controlador PID</label>
+        </div>
+        <div class="imagem">
+            <img src="{% static 'images\Nenhum.jpg' %}" alt="sistema">
+        </div>
+        <div class="metodo">
+            <input type="radio" name="metodo" id="ziegler" checked><label for="ziegler">Método de Ziegler Nichols</label>
+            <input type="radio" name="metodo" id="neural"><label for="neural">Rede Neural</label>
+            <input type="radio" name="metodo" id="fuzzy"><label for="fuzzy">Fuzzy</label>
+            <input type="radio" name="metodo" id="genetico"><label for="genetico">Algoritmo Genético</label>
+        </div>
+        <div class="graficos"></div>
+    </div>
 </body>
 </html>
