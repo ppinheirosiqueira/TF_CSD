@@ -46,36 +46,6 @@ class PI:
         Ploting the step response of the PI controller
         """
         # Calculando a função de transferência da malha fechada com o controlador PI
-        pi_controller = ctrl.TransferFunction([self.Kp, self.Ki], [0, 1])
-
-        print("Gp: ", self.Tf)
-        print("Ação PI: ", pi_controller)
-
-        system_pi_closed_loop = ctrl.feedback(self.Tf * pi_controller, self.feedback)
-
-        # Obtendo a resposta ao degrau da malha fechada
-        time_pi, response_pi = ctrl.step_response(system_pi_closed_loop)
-
-        # Plotando a resposta ao degrau
-        plt.plot(time_pi, response_pi)
-        plt.xlabel('Tempo')
-        plt.ylabel('Resposta ao Degrau')
-        plt.title('Resposta ao Degrau da Malha Fechada com PI')
-        plt.grid(True)
-        plt.show()
-
-class PI:
-    def __init__(self, Kp: float, Ki: float, feedback: float, Tf: ctrl.tf):
-        self.Kp = Kp
-        self.Ki = Ki
-        self.Tf = Tf
-        self.feedback = feedback
-
-    def plot_step_response(self):
-        """"
-        Ploting the step response of the PI controller
-        """
-        # Calculando a função de transferência da malha fechada com o controlador PI
         pi_controller = ctrl.TransferFunction([self.Kp, self.Ki], [1, 0])
 
         print("Gp: ", self.Tf)
