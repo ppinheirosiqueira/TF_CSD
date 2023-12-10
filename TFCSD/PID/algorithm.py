@@ -27,11 +27,14 @@ class PID:
         # Obtendo a resposta ao degrau da malha fechada
         time_pid, response_pid = ctrl.step_response(system_pid_closed_loop)
 
+
         # Plotando a resposta ao degrau
-        plt.plot(time_pid, response_pid)
+        label_text = f'PID: Kp={self.Kp:.2f}, Ki={self.Ki:.2f}, Kd={self.Kd:.2f}'
+        plt.plot(time_pid, response_pid,  label = label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
-        plt.title('Resposta ao Degrau da Malha Fechada com PID')
+        plt.legend()
+        plt.title('Resposta ao Degrau do Sistema no Tempo')
         plt.grid(True)
         plt.show()
 
@@ -56,12 +59,14 @@ class PI:
 
         # Obtendo a resposta ao degrau da malha fechada
         time_pi, response_pi = ctrl.step_response(system_pi_closed_loop)
-
+        
         # Plotando a resposta ao degrau
-        plt.plot(time_pi, response_pi)
+        label_text = f'PI: Kp={self.Kp:.2f}, Ki={self.Ki:.2f}'
+        plt.plot(time_pi, response_pi, label= label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
-        plt.title('Resposta ao Degrau da Malha Fechada com PI')
+        plt.title('Resposta ao Degrau do Sistema no Tempo')
+        plt.legend()
         plt.grid(True)
         plt.show()
 
@@ -88,10 +93,12 @@ class PD:
         time_pd, response_pd = ctrl.step_response(system_pd_closed_loop)
 
         # Plotando a resposta ao degrau
-        plt.plot(time_pd, response_pd)
+        label_text = f'PD: Kp={self.Kp:.2f}, Kd={self.Kd:.2f}'
+        plt.plot(time_pd, response_pd, label= label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
-        plt.title('Resposta ao Degrau da Malha Fechada com PD')
+        plt.title('Resposta ao Degrau do Sistema no Tempo')
+        plt.legend()
         plt.grid(True)
         plt.show()
 
@@ -117,10 +124,12 @@ class P:
         time_p, response_p = ctrl.step_response(system_p_closed_loop)
 
         # Plotando a resposta ao degrau
-        plt.plot(time_p, response_p)
+        label_text = f'P: Kp={self.Kp:.2f}'
+        plt.plot(time_p, response_p, label= label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
-        plt.title('Resposta ao Degrau da Malha Fechada com P')
+        plt.title('Resposta ao Degrau do Sistema no Tempo')
+        plt.legend()
         plt.grid(True)
         plt.show()
 
@@ -140,10 +149,12 @@ class GpNoControlAction:
         time_gp, response_gp = ctrl.step_response(tf_closed_layer)
 
         # Criando um vetor de tempo mais adequado
-        plt.plot(time_gp, response_gp)
+        label_text = f'TFMF: {self.Tf}'
+        plt.plot(time_gp, response_gp, label=label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
-        plt.title('Resposta ao Degrau da Gp em Malha Fechada sem Ação de Controle')
+        plt.title('Resposta ao Degrau do Sistema no Tempo')
+        plt.legend()
         plt.grid(True)
         plt.show()
 
