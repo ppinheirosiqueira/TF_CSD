@@ -28,47 +28,42 @@ body{
     position: relative;
     width: 80%;
     margin: 0% 10%;
-    border-top: 0.5em solid black;
-    border-right: 0.5em solid black;
+    border-top: 0.3em solid black;
+    border-right: 0.3em solid black;
 }
 
 .sistema .entrada{
     border: 0.3em solid black;
     position: absolute;
-    top: -3em;
-    left: -3em;
-    width: 6em;
-    height: 6em;
+    top: -17.5%;
+    left: -5%;
+    width: 10%;
+    height: 35%;
     background-color: white;
 }
 
 .sistema .entrada .primeirodiv{
     border-top: .2em solid black;
     position: absolute;
-    top: 4.8em;
-    left: 0.8em;
-    width: 2.15em;
+    top: 75%;
+    left: 25%;
+    width: 28%;
 }
 
 .sistema .entrada .segundodiv{
     border-left: .2em solid black;
     position: absolute;
-    top: 0.8em;
-    left: 2.8em;
-    height: 4em;
+    top: 25%;
+    left: 50%;
+    height: 50%;
 }
 
 .sistema .entrada .terceirodiv{
     border-top: .2em solid black;
     position: absolute;
-    top: 0.8em;
-    left: 2.8em;
-    width: 2em;
-}
-
-.sistema .entrada img{
-    width: 5em;
-    height: 5em;
+    top: 25%;
+    left: 50%;
+    width: 25%;
 }
 
 .sistema .auxiliar{
@@ -77,17 +72,17 @@ body{
     top: 0;
     width: 75%;
     height: 100%;
-    border-bottom: 0.5em solid black;
-    border-left: 0.5em solid black;
+    border-bottom: 0.3em solid black;
+    border-left: 0.3em solid black;
 }
 
 .sistema .somador{
     position: absolute;
-    width: 4em;
-    height: 4em;
-    top: -2em;
-    left: calc(25% - 1.8em);
-    border: 0.5em solid black;
+    width: 4vw;
+    height: 4vw;
+    top: -2vw;
+    left: calc(25% - 2vw);
+    border: 0.3em solid black;
     border-radius: 50%;
     background-color: white;
 }
@@ -120,20 +115,22 @@ body{
     position: absolute;
     border: 0.3em solid black;
     width: 15%;
-    height: 6em;
-    top: -3em;
+    height: 35%;
+    top: -17.5%;
     right: 15%;
     background-color: white;
+    cursor: pointer;
 }
 
 .sistema .controlador{
     position: absolute;
     border: 0.3em solid black;
     width: 15%;
-    height: 6em;
-    top: -3em;
+    height: 35%;
+    top: -17.5%;
     right: 45%;
     background-color: white;
+    cursor: pointer;
 }
 
 button{
@@ -141,6 +138,7 @@ button{
     width: 100%;
     height: 100%;
     font-size: 3em;
+    cursor: pointer;
 }
 
 .funcaoAberta{
