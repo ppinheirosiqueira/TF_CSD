@@ -9,18 +9,23 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles/home.css' %}">
 </head>
 <body>
-    Um controlador PID (Proporcional, Integral, Derivativo) é um mecanismo de controle de feedback amplamente utilizado em sistemas de controle. Ele é usado para corrigir o erro entre um valor medido e um valor desejado, chamado de valor de referência,ou \textit{set point}.
+    Um controlador PID (Proporcional, Integral, Derivativo) é um mecanismo de controle de feedback amplamente utilizado em sistemas de controle. Ele é usado para corrigir o erro 
+    entre um valor medido e um valor desejado, chamado de valor de referência,ou \textit{set point}.
     <br>
     As três partes do PID incluem:
     <br>
-    Proporcional (P): A parte proporcional produz uma saída que é proporcional ao erro atual no sistema. Ela atua no estado transitório do sistema modificando o \textit{overshoot} e o tempo de estabilização do sistema.    
+    Proporcional (P): A parte proporcional produz uma saída que é proporcional ao erro atual no sistema. Ela atua no estado transitório do sistema modificando o \textit{overshoot} 
+    e o tempo de estabilização do sistema.    
     <br>
-    Integral (I): A parte integral produz uma saída baseada tanto na magnitude do erro quanto na duração do erro. A saída integral é a soma dos erros instantâneos ao longo do tempo. Ela atua no estado permanente, reduzindo o erro a zero. A ação integral adiciona um polo à função de transferência do sistema.
+    Integral (I): A parte integral produz uma saída baseada tanto na magnitude do erro quanto na duração do erro. A saída integral é a soma dos erros instantâneos ao longo do tempo. 
+    Ela atua no estado permanente, reduzindo o erro a zero. A ação integral adiciona um polo à função de transferência do sistema.
     <br>
-    Derivativo (D): A parte derivativa produz uma saída que é baseada na taxa de variação do erro com o tempo. A ação derivativa modifica o tempo de subida, aumenta o tempo de estabilização proporcionalmente ao Kd e adiciona um zero á função de tranferência do sistema. Por isso, deve-se ter cuidado ao usa-la.
+    Derivativo (D): A parte derivativa produz uma saída que é baseada na taxa de variação do erro com o tempo. A ação derivativa modifica o tempo de subida, aumenta o tempo de 
+    estabilização proporcionalmente ao Kd e adiciona um zero á função de tranferência do sistema. Por isso, deve-se ter cuidado ao usa-la.
     <br>
     <br>
-    A combinação dessas três ações pode ser ajustada (ou “sintonizada”) para um processo específico para minimizar o erro e proporcionar controle estável do processo. O controlador PID é usado em uma variedade de aplicações, desde controle de temperatura até controle de velocidade de veículos autônomos.
+    A combinação dessas três ações pode ser ajustada (ou “sintonizada”) para um processo específico para minimizar o erro e proporcionar controle estável do processo. O controlador 
+    PID é usado em uma variedade de aplicações, desde controle de temperatura até controle de velocidade de veículos autônomos.
     <br>
     <a href="{% url 'controlador' nome='nenhum' %}">Nenhum controlador</a>
     <a href="{% url 'controlador' nome='p' %}">Controlador P</a>

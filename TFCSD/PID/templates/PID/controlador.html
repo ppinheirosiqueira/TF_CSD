@@ -7,29 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controladores</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles/controlador.css' %}">
+    <script type="text/javascript" src="{% static 'scripts/controlarBloco.js' %}"></script>
+    <script type="text/javascript" src="{% static 'scripts/tf.js' %}"></script>
 </head>
 <body>
     <div class="container">
         <div class="controlador">
-            <a href="{% url 'controlador' nome='nenhum' %}">Nenhum controlador</a>
-            <a href="{% url 'controlador' nome='p' %}">Controlador P</a>
-            <a href="{% url 'controlador' nome='pi' %}">Controlador PI</a>
-            <a href="{% url 'controlador' nome='pd' %}">Controlador PD</a>
-            <a href="{% url 'controlador' nome='pid' %}">Controlador PID</a>
+            <a {% if nome == "nenhum" %}class='atual'{% endif %} href="{% url 'controlador' nome='nenhum' %}">Nenhum controlador</a>
+            <a {% if nome == "p" %}class='atual'{% endif %} href="{% url 'controlador' nome='p' %}">Controlador P</a>
+            <a {% if nome == "pi" %}class='atual'{% endif %} href="{% url 'controlador' nome='pi' %}">Controlador PI</a>
+            <a {% if nome == "pd" %}class='atual'{% endif %} href="{% url 'controlador' nome='pd' %}">Controlador PD</a>
+            <a {% if nome == "pid" %}class='atual'{% endif %} href="{% url 'controlador' nome='pid' %}">Controlador PID</a>
         </div>
-        <div class="imagem">
-            {% if nome == "nenhum" %}
-                <img src="{% static 'images\Nenhum.jpg' %}" alt="sistema">
-            {% elif nome == "p" %}
-                <img src="{% static 'images\P.jpg' %}" alt="sistema">
-            {% elif nome == "pi" %}
-                <img src="{% static 'images\PI.jpg' %}" alt="sistema">
-            {% elif nome == "pd" %}
-                <img src="{% static 'images\PD.jpg' %}" alt="sistema">
-            {% elif nome == "pid" %}
-                <img src="{% static 'images\PID.jpg' %}" alt="sistema">
-            {% else %}
-                Desculpe, mas não sabemos que controlador é esse
+        <div class="sistema">
+            <div class="entrada">
+                <div class="primeirodiv"></div>
+                <div class="segundodiv"></div>
+                <div class="terceirodiv"></div>
+            </div>
+            <div class="auxiliar"></div>
+            <div class="somador">
+                <div class="mais1"></div>
+                <div class="mais2"></div>
+                <div class="menos"></div>
+            </div>
+            {% if nome != "nenhum" %}
+                <div class="controlador">
+                    <button onClick='abrirControlador()'>{{ nome|upper }}</button>
+                </div>
+            {% endif %}
+            <div class="funcao">
+                <button onClick='abrirFuncao()'>G</button>
+            </div>
+        </div>
+        <div class="enviar">
+            <button onClick='enviarTF()'>Processar Função de Transferência</button>
+        </div>
+        <div class="funcaoAberta">
+            <span>Função de Transferência</span>
+            <label for="num">Numerador:</label>
+            <input type="text" name="num" id="num" value="{{ tf.num }}">
+            <label for="den">Denominador:</label>
+            <input type="text" name="den" id="den" value="{{ tf.den }}">
+        </div>
+        <div class="controladorAberto">
+            <span>Ganhos</span>
+            <label for="kp">Kp:</label>
+            <input type="number" name="kp" id="kp" value="{{ controlador.kp }}" min="0" step="0.01">
+            {% if nome == "pi" or nome == "pid" %}
+                <label for="ki">Ki:</label>
+                <input type="number" name="ki" id="ki" value="{{ controlador.ki }}" min="0" step="0.01">
+            {% endif %} 
+            {% if nome == "pd" or nome == "pid" %}
+                <label for="kd">Kd:</label>
+                <input type="number" name="kd" id="kd" value="{{ controlador.kd }}" min="0" step="0.01">
             {% endif %}
         </div>
         <div class="graficos"></div>

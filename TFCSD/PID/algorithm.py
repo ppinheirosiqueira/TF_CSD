@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import control as ctrl
+import plotly.offline as plot
 
 # PID controller class
 
@@ -16,7 +17,7 @@ class PID:
         Ploting the step response of the PID controller
         """
         # Calculando a função de transferência da malha fechada com o controlador PID
-        pid_controller = ctrl.TransferFunction([self.Kd, self.Kp, self.Ki], [0, 1, 0])
+        pid_controller = ctrl.TransferFunction([self.Kp, self.Ki, self.Kd], [0, 1, 0])
 
         print("Gp: ", self.Tf)
         print("Ação PID: ", pid_controller)
@@ -146,7 +147,8 @@ class GpNoControlAction:
         plt.grid(True)
         plt.show()
 
-
+def fazerTF(numerador,denominador):
+    return ctrl.tf(numerador, denominador)
 
 def main():
     dados_entrada = {
