@@ -150,56 +150,56 @@ class GpNoControlAction:
 def fazerTF(numerador,denominador):
     return ctrl.tf(numerador, denominador)
 
-def main():
-    dados_entrada = {
-        'Kp': 1,
-        'Ki': 1,
-        'Kd': 1,
-        'numerador': [1],
-        'denominador': [1, 2, 1],
-        'feedback': 1
-    }
+# def main():
+#     dados_entrada = {
+#         'Kp': 1,
+#         'Ki': 1,
+#         'Kd': 1,
+#         'numerador': [1],
+#         'denominador': [1, 2, 1],
+#         'feedback': 1
+#     }
 
-    Tf = ctrl.tf(dados_entrada['numerador'], dados_entrada['denominador'])
+#     Tf = ctrl.tf(dados_entrada['numerador'], dados_entrada['denominador'])
 
-    pid = PID(
-        Kp = dados_entrada['Kp'],
-        Ki = dados_entrada['Ki'],
-        Kd = dados_entrada['Kd'],
-        feedback = dados_entrada['feedback'],
-        Tf = Tf
-    )
+#     pid = PID(
+#         Kp = dados_entrada['Kp'],
+#         Ki = dados_entrada['Ki'],
+#         Kd = dados_entrada['Kd'],
+#         feedback = dados_entrada['feedback'],
+#         Tf = Tf
+#     )
 
-    pi = PI(
-        Kp = dados_entrada['Kp'],
-        Ki = dados_entrada['Ki'],
-        feedback = dados_entrada['feedback'],
-        Tf = Tf
-    )
+#     pi = PI(
+#         Kp = dados_entrada['Kp'],
+#         Ki = dados_entrada['Ki'],
+#         feedback = dados_entrada['feedback'],
+#         Tf = Tf
+#     )
 
-    pd = PD(
-        Kp = dados_entrada['Kp'],
-        Kd = dados_entrada['Kd'],
-        feedback = dados_entrada['feedback'],
-        Tf = Tf
-    )
+#     pd = PD(
+#         Kp = dados_entrada['Kp'],
+#         Kd = dados_entrada['Kd'],
+#         feedback = dados_entrada['feedback'],
+#         Tf = Tf
+#     )
 
-    p = P(
-        Kp = dados_entrada['Kp'],
-        feedback = dados_entrada['feedback'],
-        Tf = Tf
-    )
+#     p = P(
+#         Kp = dados_entrada['Kp'],
+#         feedback = dados_entrada['feedback'],
+#         Tf = Tf
+#     )
 
-    tfmf = GpNoControlAction(
-        feedback = dados_entrada['feedback'],
-        Tf = Tf
-    )
+#     tfmf = GpNoControlAction(
+#         feedback = dados_entrada['feedback'],
+#         Tf = Tf
+#     )
 
-    tfmf.plot_step_response()
-    p.plot_step_response()
-    pi.plot_step_response()
-    pd.plot_step_response()
-    pid.plot_step_response()
+#     tfmf.plot_step_response()
+#     p.plot_step_response()
+#     pi.plot_step_response()
+#     pd.plot_step_response()
+#     pid.plot_step_response()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

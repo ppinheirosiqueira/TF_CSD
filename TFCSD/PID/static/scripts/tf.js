@@ -62,8 +62,11 @@ function enviarTF(){
     .then(function(response) {
         return response.json();
     })
-    .then(function(data) {
-        exibirDados(data);
+    .then(function(data){
+        if (data['status'] !== "Sucesso") {
+            alert("Alguma coisa infelizmente deu errado")
+            return
+        }
     })
     .catch(function(error) {
         console.log('Ocorreu um erro:', error);
