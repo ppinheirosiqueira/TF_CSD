@@ -18,6 +18,7 @@
             <a {% if nome == "pi" %}class='atual'{% endif %} href="{% url 'controlador' nome='pi' %}">Controlador PI</a>
             <a {% if nome == "pd" %}class='atual'{% endif %} href="{% url 'controlador' nome='pd' %}">Controlador PD</a>
             <a {% if nome == "pid" %}class='atual'{% endif %} href="{% url 'controlador' nome='pid' %}">Controlador PID</a>
+            <a id="help" onClick="abrirHelp()"><b>AJUDA</b></a>
         </div>
         <div class="sistema">
             <div class="entrada">
@@ -39,19 +40,23 @@
             <div class="funcao">
                 <button onClick='abrirFuncao()'>G</button>
             </div>
+            <div class="ligacao"></div>
+            <div class="scope">
+                <div class="visor"></div>
+                <button onClick='enviarTF()'></button>
+            </div>
         </div>
-        <div class="enviar">
-            <button onClick='enviarTF()'>Processar Função de Transferência</button>
-        </div>
-        <div class="funcaoAberta">
-            <span>Função de Transferência</span>
+        <div id="funcaoAberta" class="funcaoAberta">
+            <titulo class="titulo" id="tituloFuncao">Função de Transferência</titulo>
+            <div class="fechar"><button onClick="fecharFuncao()">X</button></div>
             <label for="num">Numerador:</label>
             <input type="text" name="num" id="num" value="{{ tf.num }}">
             <label for="den">Denominador:</label>
             <input type="text" name="den" id="den" value="{{ tf.den }}">
         </div>
-        <div class="controladorAberto">
-            <span>Ganhos</span>
+        <div id="controladorAberto" class="controladorAberto">
+            <div class="titulo" id="tituloControlador">Ganhos</div>
+            <div class="fechar"><button onClick="fecharControlador()">X</button></div>
             <label for="kp">Kp:</label>
             <input type="number" name="kp" id="kp" value="{{ controlador.kp }}" min="0" step="0.01">
             {% if nome == "pi" or nome == "pid" %}
@@ -63,7 +68,65 @@
                 <input type="number" name="kd" id="kd" value="{{ controlador.kd }}" min="0" step="0.01">
             {% endif %}
         </div>
-        <div class="graficos"></div>
+        <div id="helpAberto">
+            <div class="titulo" id="tituloHelp">AJUDA</div>
+            <div class="fechar"><button onClick="fecharHelp()">X</button></div>
+            <article>
+            <h1>Controlador PID</h1>
+            <p>
+                Um controlador PID (Proporcional, Integral, Derivativo) é um mecanismo de controle de feedback amplamente
+                utilizado
+                em sistemas de controle. Ele é usado para corrigir o erro
+                entre um valor medido e um valor desejado, chamado de valor de referência,ou <i>set point</i>.
+            </p>
+            <br>
+            <section>
+                <h2>As três ações PID básicas são:</h2>
+                <br>
+                <b>Proporcional (P):</b> A parte proporcional produz uma saída que é proporcional ao erro atual no sistema.
+                Ela
+                atua no
+                estado transitório do sistema modificando o <i>overshoot</i>
+                e o tempo de estabilização do sistema.
+                <br>
+                <br>
+                <b>Integral (I):</b> A parte integral produz uma saída baseada tanto na magnitude do erro quanto na duração
+                do erro. A saída integral é a soma dos erros instantâneos ao longo do tempo.
+                Ela atua no estado permanente, reduzindo o erro a zero. A ação integral adiciona um polo à função de
+                transferência do sistema.
+                <br>
+                <br>
+                <b>Derivativo (D):</b> A parte derivativa produz uma saída que é baseada na taxa de variação do erro com o
+                tempo. A ação derivativa modifica o tempo de subida, aumenta o tempo de
+                estabilização proporcionalmente ao Kd e adiciona um zero á função de tranferência do sistema. Por isso,
+                deve-se ter cuidado ao usa-la.
+            </section>
+            <br>
+            <br>
+            <h2>Aplicações:</h2>
+            <br>
+            <p class="myClass"> A combinação dessas três ações pode ser ajustada (ou “sintonizada”) para um processo
+                específico para minimizar o erro e proporcionar controle estável do processo. O controlador
+                PID é usado em uma variedade de aplicações, desde controle de temperatura até controle de velocidade de
+                veículos autônomos.
+            </p>
+            <br>
+            <br>
+            <div>
+                <h2>Funcionamento do Simulador</h2>
+                <p>
+                    Existem várias opções de controladores, sendo elas <b class="red">Sem
+                    controlador</b>, <b class="red">P</b>, <b class="red">PI</b>, <b class="red">PD</b> e <b
+                    class="red">PID</b>. Em cada uma dessas opções, a função de transferência pode ser escrita ao clicar
+                    no bloco <b>G</b>. Os ganhos, por sua vez, podem ser indicados clicando-se no bloco com o
+                    <b>nome do controlador (P, PI, PD, ou PID)</b>. Os valores são submetidos somente ao se clicar no escopo do lado
+                    direito, para o numerador e o denominador da função de transferência pode-se colocar os números com um espaço ou com vírgula entre
+                    os números. Exemplo: 1 5 4 ou 1, 5, 4. Cada número é um grau a mais na função, por exemplo, se você colocar 1 5 4 no numerador, é o
+                    equivalente a: s² + 5s + 4.
+                </p>
+            </div>
+        </article>
+        </div>
     </div>
 </body>
 </html>

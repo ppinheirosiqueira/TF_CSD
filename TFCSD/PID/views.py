@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from . import algorithm
 from django.http import JsonResponse
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -8,8 +10,7 @@ tf = {}
 control = {}
 
 def home(request):
-    variavel = False
-    return render(request, "PID/home.html", {"variavel": variavel,})
+    return HttpResponseRedirect(reverse("controlador",None,["nenhum",]))
 
 def controlador(request, nome):
     return render(request, "PID/controlador.html", {"nome": nome, "tf" : tf, "controlador": control,})
