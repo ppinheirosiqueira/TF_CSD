@@ -1,0 +1,198 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+}
+
+.container {
+	padding: 2%;
+	width: 96%;
+	height: 96%;
+	display: grid;
+	grid-template-rows: 1fr 5fr 5fr;
+	grid-template-columns: 5fr 1fr;
+	grid-template-areas:
+		'controladores controladores'
+		'sistema enviar'
+		'graficos graficos';
+	gap: 5em;
+}
+
+.sistema {
+	grid-area: sistema;
+	position: relative;
+	width: 80%;
+	margin: 0% 10%;
+	border-top: 0.3em solid black;
+	border-right: 0.3em solid black;
+}
+
+.sistema .entrada {
+	border: 0.3em solid black;
+	position: absolute;
+	top: -17.5%;
+	left: -5%;
+	width: 10%;
+	height: 35%;
+	background-color: white;
+}
+
+.sistema .entrada .primeirodiv {
+	border-top: .2em solid black;
+	position: absolute;
+	top: 75%;
+	left: 25%;
+	width: 28%;
+}
+
+.sistema .entrada .segundodiv {
+	border-left: .2em solid black;
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	height: 50%;
+}
+
+.sistema .entrada .terceirodiv {
+	border-top: .2em solid black;
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	width: 25%;
+}
+
+.sistema .auxiliar {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 75%;
+	height: 100%;
+	border-bottom: 0.3em solid black;
+	border-left: 0.3em solid black;
+}
+
+.sistema .somador {
+	position: absolute;
+	width: 4vw;
+	height: 4vw;
+	top: -2vw;
+	left: calc(25% - 2vw);
+	border: 0.3em solid black;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.sistema .somador .mais1 {
+	border-right: 0.2em solid black;
+	height: 1em;
+	position: absolute;
+	top: calc(50% - .6em);
+	left: 0.7em;
+}
+
+.sistema .somador .mais2 {
+	border-bottom: 0.2em solid black;
+	width: 1em;
+	position: absolute;
+	top: calc(50% - .2em);
+	left: 0.3em;
+}
+
+.sistema .somador .menos {
+	border-bottom: 0.2em solid black;
+	width: 1em;
+	position: absolute;
+	bottom: 0.3em;
+	left: calc(50% - .5em);
+}
+
+.sistema .funcao {
+	position: absolute;
+	border: 0.3em solid black;
+	width: 15%;
+	height: 35%;
+	top: -17.5%;
+	right: 15%;
+	background-color: white;
+	cursor: pointer;
+}
+
+.sistema .controlador {
+	position: absolute;
+	border: 0.3em solid black;
+	width: 15%;
+	height: 35%;
+	top: -17.5%;
+	right: 45%;
+	background-color: white;
+	cursor: pointer;
+}
+
+button {
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	font-size: 3em;
+	cursor: pointer;
+}
+
+.funcaoAberta {
+	position: absolute;
+	top: 25%;
+	left: 37.5%;
+	background-color: white;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	padding: 3em;
+	background-color: gray;
+	gap: 1em;
+	display: none;
+}
+
+.funcaoAberta span {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	font-size: 2em;
+}
+
+.controladorAberto {
+	position: absolute;
+	top: 25%;
+	left: 37.5%;
+	background-color: white;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	padding: 3em;
+	background-color: gray;
+	gap: 1em;
+	display: none;
+}
+
+.controladorAberto span {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	font-size: 2em;
+}
+
+.enviar {
+	grid-area: enviar;
+}
+
+a {
+	padding: 10px;
+	text-decoration: none;
+	color: black;
+	background-color: bisque;
+}
+
+.atual {
+	color: white;
+	background-color: black;
+}
