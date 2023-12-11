@@ -55,13 +55,30 @@
         </section>
         <br>
         <br>
-        <p> A combinação dessas três ações pode ser ajustada (ou “sintonizada”) para um processo específico para
+        <h2>Aplicações:</h2>
+        <br>
+        <p class="myClass"> A combinação dessas três ações pode ser ajustada (ou “sintonizada”) para um processo
+            específico para
             minimizar o
             erro e proporcionar controle estável do processo. O controlador
             PID é usado em uma variedade de aplicações, desde controle de temperatura até controle de velocidade de
             veículos
             autônomos.
         </p>
+        <br>
+        <br>
+        <div>
+            <h2>Funcionamento do Simulador</h2>
+            <p>
+                Para se utilizar este simulador, basta clicar no botão <b class="red">iniciar</b>, para ter acesso ao
+                simulador.
+                Uma vez feito isso, haverão várias opções de controladores, sendo elas <b class="red">Sem
+                    controlador</b>, <b class="red">P</b>, <b class="red">PI</b>, <b class="red">PD</b> e <b
+                    class="red">PID</b>. Em cada uma dessas opções, a função de transferência pode ser escrita ao clicar
+                no bloco <b>G</b>. Os ganhos, por sua vez, podem ser indicados clicando-se no bloco com o
+                <b>nome do controlador(P,PI,PD,ou PID)</b>.
+            </p>
+        </div>
     </article>
     <br>
     <a class="atual" href="{% url 'controlador' nome='nenhum' %}">Nenhum controlador</a>
