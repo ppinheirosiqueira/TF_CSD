@@ -12,6 +12,16 @@
 </head>
 <body>
     <div class="container">
+        {% if primeiraVez %}
+            <div class="avisoInicial">
+                <h2>Bem-Vindo ao nosso simulador de controle PID!</h2>
+                <p>
+                    Aproveite  o nosso simulador para seus estudos em controle de sistemas dinâmicos! 
+                    Para mais informações sobre controle e como funciona o simulador, consulte o nosso guia, clicando no botão de ajuda, que se encontra ao fim do menu!
+                </p>
+                <p><button onClick="fecharInicial()">OK</button></p>
+            </div>
+        {% endif %}
         <div class="menu">
             <a {% if nome == "nenhum" %}class='atual'{% endif %} href="{% url 'controlador' nome='nenhum' %}">Nenhum controlador</a>
             <a {% if nome == "p" %}class='atual'{% endif %} href="{% url 'controlador' nome='p' %}">Controlador P</a>

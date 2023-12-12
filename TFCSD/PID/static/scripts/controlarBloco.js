@@ -28,6 +28,11 @@ function fecharControlador(){
     controlador.style.display = "none"
 }
 
+function fecharInicial(){
+    var inicial = document.getElementsByClassName('avisoInicial')[0]
+    inicial.style.display = "none"
+}
+
 function makeDraggable(elementId) {
     let isDragging = false;
     let initialX;

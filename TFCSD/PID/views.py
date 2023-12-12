@@ -10,10 +10,12 @@ tf = {}
 control = {}
 
 def home(request):
-    return HttpResponseRedirect(reverse("controlador",None,["nenhum",]))
+    request.session['primeiraVez'] = True
+    return HttpResponseRedirect(reverse("controlador",None,["nenhum"]))
 
 def controlador(request, nome):
-    return render(request, "PID/controlador.html", {"nome": nome, "tf" : tf, "controlador": control,})
+    primeiraVez = request.session.pop('primeiraVez', False)
+    return render(request, "PID/controlador.html", {"nome": nome, "tf" : tf, "controlador": control, "primeiraVez": primeiraVez,})
 
 def atualizarTF(request, num, den, tipo, kp, ki, kd):
     tf.update({'num': num})

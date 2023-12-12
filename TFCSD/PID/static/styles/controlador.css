@@ -280,6 +280,10 @@ a{
     cursor: pointer;
 }
 
+a:hover{
+    background-color: lightgray;
+}
+
 .atual{
     color: white;
     background-color: black;
@@ -349,4 +353,37 @@ a{
 #helpAberto .back-btn {
     cursor: pointer;
     display: none;
+}
+
+.avisoInicial{
+    position: absolute;
+    top: 35%;
+    right: 30%;
+    width: 40%;
+    padding: 32px;
+    background-color: lightsalmon;
+    border: 3px solid red;
+    line-height: 1.5em;
+    z-index: 1;
+}
+
+.avisoInicial h2{
+    text-align: center;
+}
+
+.avisoInicial p{
+    text-align: center;
+    margin-top: 1em;
+    font-size: x-large;
+}
+
+.avisoInicial button{
+    font-size: medium;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    width: auto;
+    height: auto;
+    margin: auto;
 }
