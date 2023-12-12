@@ -3,7 +3,7 @@ from . import algorithm
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+import asyncio
 # Create your views here.
 
 tf = {}
@@ -38,7 +38,7 @@ def atualizarTF(request, num, den, tipo, kp, ki, kd):
         else:
             controladorAtual = algorithm.PID(float(kp),float(ki),float(kd),1,Tf)
         
-        controladorAtual.plot_step_response()
+        asyncio.run(controladorAtual.plot_step_response())
         data = {'status': "Sucesso"}
         return JsonResponse(data)
     except:

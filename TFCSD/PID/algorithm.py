@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import control as ctrl
-
+import asyncio
 # PID controller class
 
 class PID:
@@ -11,7 +11,7 @@ class PID:
         self.Tf = Tf
         self.feedback = feedback
 
-    def plot_step_response(self):
+    async def plot_step_response(self):
         """"
         Ploting the step response of the PID controller
         """
@@ -26,6 +26,7 @@ class PID:
 
         # Plotando a resposta ao degrau
         label_text = f'PID: Kp={self.Kp:.2f}, Ki={self.Ki:.2f}, Kd={self.Kd:.2f}'
+        await asyncio.sleep(0.005)
         plt.plot(time_pid, response_pid,  label = label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
@@ -41,7 +42,7 @@ class PI:
         self.Tf = Tf
         self.feedback = feedback
 
-    def plot_step_response(self):
+    async def plot_step_response(self):
         """"
         Ploting the step response of the PI controller
         """
@@ -55,6 +56,7 @@ class PI:
         
         # Plotando a resposta ao degrau
         label_text = f'PI: Kp={self.Kp:.2f}, Ki={self.Ki:.2f}'
+        await asyncio.sleep(0.005)
         plt.plot(time_pi, response_pi, label= label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
@@ -70,7 +72,7 @@ class PD:
         self.Tf = Tf
         self.feedback = feedback
 
-    def plot_step_response(self):
+    async def plot_step_response(self):
         """"
         Ploting the step response of the PI controller
         """
@@ -84,6 +86,7 @@ class PD:
 
         # Plotando a resposta ao degrau
         label_text = f'PD: Kp={self.Kp:.2f}, Kd={self.Kd:.2f}'
+        await asyncio.sleep(0.005)
         plt.plot(time_pd, response_pd, label= label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
@@ -98,7 +101,7 @@ class P:
         self.Tf = Tf
         self.feedback = feedback
 
-    def plot_step_response(self):
+    async def plot_step_response(self):
         """"
         Ploting the step response of the PI controller
         """
@@ -112,6 +115,7 @@ class P:
 
         # Plotando a resposta ao degrau
         label_text = f'P: Kp={self.Kp:.2f}'
+        await asyncio.sleep(0.005)
         plt.plot(time_p, response_p, label= label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
@@ -125,7 +129,7 @@ class GpNoControlAction:
         self.Tf = Tf
         self.feedback = feedback
 
-    def plot_step_response(self):
+    async def plot_step_response(self):
         """"
         Ploting the step response of the PI controller
         """
@@ -135,6 +139,7 @@ class GpNoControlAction:
 
         # Criando um vetor de tempo mais adequado
         label_text = f'TFMF: {self.Tf}'
+        await asyncio.sleep(0.005)
         plt.plot(time_gp, response_gp, label=label_text)
         plt.xlabel('Tempo')
         plt.ylabel('Resposta ao Degrau')
