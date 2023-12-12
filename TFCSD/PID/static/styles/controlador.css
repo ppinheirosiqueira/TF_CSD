@@ -169,6 +169,18 @@ button{
     cursor: pointer;
 }
 
+.funcao:hover{
+    background-color: beige;
+}
+
+.controlador:hover{
+    background-color:mediumturquoise;
+}
+
+.scope:hover{
+    background-color: chocolate;
+}
+
 .funcaoAberta{
     position: absolute;
     top: 25%;
@@ -307,8 +319,34 @@ a{
     border: none;
 }
 
-#helpAberto article{
+#helpAberto .help-menu {
+    list-style: none;
+    padding: 16px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#helpAberto .help-menu-item {
+    cursor: pointer;
+}
+
+#helpAberto .content {
+    display: none;
     grid-column-start: 1;
     grid-column-end: 3;
     padding: 16px;
+    line-height: 1.2em;
+}
+
+#helpAberto .content p{
+    margin-top: 1.5em;
+}
+
+#helpAberto .content h3, #helpAberto .content h2{
+    margin-top: 1.5em;
+}
+
+#helpAberto .back-btn {
+    cursor: pointer;
+    display: none;
 }

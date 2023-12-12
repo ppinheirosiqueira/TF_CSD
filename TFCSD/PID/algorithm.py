@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import control as ctrl
-import plotly.offline as plot
 
 # PID controller class
 

@@ -2,13 +2,8 @@ function enviarTF(){
     var num = document.getElementById("num").value
     var den = document.getElementById("den").value
 
-    if (num == ""){
-        alert("Não é possível um numerador zerado")
-        return
-    }
-
-    if (den == ""){
-        alert("Não é possível um denominador zerado")
+    if (num == "" || den == "" || den == "0"){
+        alert("Não é possível um numerador/denominador zerado, por favor, adicione-os no bloco G")
         return
     }
 
@@ -25,7 +20,7 @@ function enviarTF(){
         kp = document.getElementById("kp").value
         ki = 0 
         kd = 0
-        if (kp == ''){
+        if (kp == '' || kp == 0){
             alert("Não é possível um controlador proporcional com ganho Kp zerado")
             return
         }
@@ -34,7 +29,7 @@ function enviarTF(){
         kp = document.getElementById("kp").value
         ki = document.getElementById("ki").value
         kd = 0
-        if (kp == '' || ki == ""){
+        if (kp == '' || ki == "" || kp == 0 || ki == 0){
             alert("Não é possível um controlador PI com ganho Kp ou Ki zerado")
             return
         }
@@ -43,7 +38,7 @@ function enviarTF(){
         kp = document.getElementById("kp").value
         ki = 0 
         kd = document.getElementById("kd").value
-        if (kp == '' || kd == ""){
+        if (kp == '' || kd == "" || kp == 0 || kd == 0){
             alert("Não é possível um controlador PD com ganho Kp ou Kd zerado")
             return
         }
@@ -52,7 +47,7 @@ function enviarTF(){
         kp = document.getElementById("kp").value
         ki = document.getElementById("ki").value
         kd = document.getElementById("kd").value
-        if (kp == '' || kd == '' || ki == ''){
+        if (kp == '' || kd == '' || ki == '' || kp == 0 || ki == 0 || kd == 0){
             alert("Não é possível um controlador PID com ganho Kp, Ki ou Kd zerado")
             return
         }

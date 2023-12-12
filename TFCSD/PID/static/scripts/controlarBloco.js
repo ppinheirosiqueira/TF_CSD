@@ -72,4 +72,50 @@ document.addEventListener('DOMContentLoaded', function () {
     makeDraggable('tituloControlador')
     makeDraggable('tituloFuncao')
     makeDraggable('tituloHelp')
+
+    const helpMenuItems = document.querySelectorAll('.help-menu-item')
+
+    helpMenuItems.forEach(item => {
+        item.addEventListener('click', () => showContent(item.dataset.contentId))
+    })
+
 })
+
+function showContent(contentId) {
+    const contents = document.querySelectorAll('.content')
+    const backBtns = document.querySelectorAll('.back-btn')
+
+    document.getElementsByClassName('help-menu')[0].style.display = 'none'
+
+    contents.forEach(content => {
+        content.style.display = 'none'
+    })
+
+    document.getElementById(contentId).style.display = 'block'
+
+    backBtns.forEach(btn => {
+        btn.style.display = 'none'
+    })
+
+    document.querySelector(`#${contentId} .back-btn`).style.display = 'block'
+}
+
+function showMenu() {
+    const contents = document.querySelectorAll('.content')
+    const backBtns = document.querySelectorAll('.back-btn')
+    const helpMenuItems = document.querySelectorAll('.help-menu-item')
+
+    document.getElementsByClassName('help-menu')[0].style.display = 'block'
+
+    contents.forEach(content => {
+        content.style.display = 'none'
+    })
+
+    helpMenuItems.forEach(item => {
+        item.style.display = 'block'
+    })
+
+    backBtns.forEach(btn => {
+        btn.style.display = 'none'
+    })
+}

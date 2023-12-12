@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="controlador">
+        <div class="menu">
             <a {% if nome == "nenhum" %}class='atual'{% endif %} href="{% url 'controlador' nome='nenhum' %}">Nenhum controlador</a>
             <a {% if nome == "p" %}class='atual'{% endif %} href="{% url 'controlador' nome='p' %}">Controlador P</a>
             <a {% if nome == "pi" %}class='atual'{% endif %} href="{% url 'controlador' nome='pi' %}">Controlador PI</a>
@@ -71,61 +71,114 @@
         <div id="helpAberto">
             <div class="titulo" id="tituloHelp">AJUDA</div>
             <div class="fechar"><button onClick="fecharHelp()">X</button></div>
-            <article>
-            <h1>Controlador PID</h1>
-            <p>
-                Um controlador PID (Proporcional, Integral, Derivativo) é um mecanismo de controle de feedback amplamente
-                utilizado
-                em sistemas de controle. Ele é usado para corrigir o erro
-                entre um valor medido e um valor desejado, chamado de valor de referência,ou <i>set point</i>.
-            </p>
-            <br>
-            <section>
-                <h2>As três ações PID básicas são:</h2>
-                <br>
-                <b>Proporcional (P):</b> A parte proporcional produz uma saída que é proporcional ao erro atual no sistema.
-                Ela
-                atua no
-                estado transitório do sistema modificando o <i>overshoot</i>
-                e o tempo de estabilização do sistema.
-                <br>
-                <br>
-                <b>Integral (I):</b> A parte integral produz uma saída baseada tanto na magnitude do erro quanto na duração
-                do erro. A saída integral é a soma dos erros instantâneos ao longo do tempo.
-                Ela atua no estado permanente, reduzindo o erro a zero. A ação integral adiciona um polo à função de
-                transferência do sistema.
-                <br>
-                <br>
-                <b>Derivativo (D):</b> A parte derivativa produz uma saída que é baseada na taxa de variação do erro com o
-                tempo. A ação derivativa modifica o tempo de subida, aumenta o tempo de
-                estabilização proporcionalmente ao Kd e adiciona um zero á função de tranferência do sistema. Por isso,
-                deve-se ter cuidado ao usa-la.
-            </section>
-            <br>
-            <br>
-            <h2>Aplicações:</h2>
-            <br>
-            <p class="myClass"> A combinação dessas três ações pode ser ajustada (ou “sintonizada”) para um processo
-                específico para minimizar o erro e proporcionar controle estável do processo. O controlador
-                PID é usado em uma variedade de aplicações, desde controle de temperatura até controle de velocidade de
-                veículos autônomos.
-            </p>
-            <br>
-            <br>
-            <div>
-                <h2>Funcionamento do Simulador</h2>
+            <ul class="help-menu">
+                <li class="help-menu-item" data-content-id="objetivo">1 - Objetivo</li>
+                <li class="help-menu-item" data-content-id="funcionamento">2 - Funcionamento do Simulador</li>
+                <li class="help-menu-item" data-content-id="sistema">3 - Como funciona um sistema</li>
+                <li class="help-menu-item" data-content-id="controlador-pid">4 - Controlador PID</li>
+            </ul>
+            <div class="content" id="objetivo">
+                <div class="back-btn" onclick="showMenu()">← Voltar</div>
+                <h2>Objetivo</h2>
                 <p>
-                    Existem várias opções de controladores, sendo elas <b class="red">Sem
-                    controlador</b>, <b class="red">P</b>, <b class="red">PI</b>, <b class="red">PD</b> e <b
-                    class="red">PID</b>. Em cada uma dessas opções, a função de transferência pode ser escrita ao clicar
-                    no bloco <b>G</b>. Os ganhos, por sua vez, podem ser indicados clicando-se no bloco com o
-                    <b>nome do controlador (P, PI, PD, ou PID)</b>. Os valores são submetidos somente ao se clicar no escopo do lado
-                    direito, para o numerador e o denominador da função de transferência pode-se colocar os números com um espaço ou com vírgula entre
-                    os números. Exemplo: 1 5 4 ou 1, 5, 4. Cada número é um grau a mais na função, por exemplo, se você colocar 1 5 4 no numerador, é o
-                    equivalente a: s² + 5s + 4.
+                    O objetivo deste trabalho é mostrar a saída de uma função de transferência de forma que o usuário possa alterar e manipular a função de transferência 
+                    ou o seu controlador a plena vontade para verificar o que é alterado em sua saída.
+                </p>
+                <p>
+                    PS: O simulador abrirá um pop-up com a saída em tempo contínuo de uma função de transferência colocada pelo usuário em seu pleno funcionamento.
+                    Por favor, garante que seu browser permita que pop-ups não estejam bloqueados.
                 </p>
             </div>
-        </article>
+            <div class="content" id="funcionamento">
+                <div class="back-btn" onclick="showMenu()">← Voltar</div>
+                <h2>Funcionamento do Simulador</h2>
+                <p>
+                    O simulador possui 2 blocos principais e um de saída. Os blocos principais são: <b>G</b> e o controlador (não aparece quando se está na aba <b>Sem controlador</b>).
+                    Para setar os parâmetros de qualquer um deles, basta <b style="color:red;">clicar no bloco</b>.
+                </p>
+                <p>
+                    A função de transferência pode ser escrita ao clicar no bloco <b>G</b>. 
+                    Nela, o numerador e o denominador da função de transferência podem ser colocados os números com um espaço ou com vírgula entre
+                    os números. Exemplo: <b style="color:red;">1 5 4</b> ou <b style="color:red;">1, 5, 4</b>. Cada número é um grau a mais na função, 
+                    por exemplo, se você colocar 1,3 no numerador e 1 5 4 no denominador, teríamos a função de transferência: <br>
+                    <center>
+                        s + 3 <br>
+                        ------------ <br>
+                        s² + 5s + 4 <br>
+                    </center>
+                </p>
+                <p>
+                    Os ganhos do controlador, por sua vez, podem ser indicados clicando-se no bloco com o
+                    <b>nome do controlador (P, PI, PD, ou PID)</b>. Cada um deles determina quais ganhos são permitidos.
+                </p>
+                <p>
+                    Essa saída será determinada pela junção da função de transferência e o controlador que o usuário colocar. E a saída abrirá um pop-up.
+                    Desde que o pop-up não seja fechado, as diversas saídas que o usuário tiver serão acumuladas, para uma comparação melhor do usuário.
+                </p>
+                <p>
+                    Os valores só são submetidos e computador ao se clicar no bloco do lado direito.
+                </p>
+            </div>
+            <div class="content" id="sistema">
+                <div class="back-btn" onclick="showMenu()">← Voltar</div>
+                <h2>Como funciona um sistema</h2>
+                
+                <h3>Função de Transferência</h3>
+                <p>
+                    A função de transferência é uma expressão matemática que descreve como um sistema dinâmico responde a entradas. 
+                    Em outras palavras, ela representa a relação entre a entrada aplicada a um sistema e a saída resultante. 
+                    Para sistemas de controle, a função de transferência é fundamental para entender e modelar como o sistema reage a diferentes estímulos ou comandos.
+                </p>
+
+                <h3>Sistema Dinâmico</h3>
+                <p>
+                    Um sistema dinâmico é um sistema que muda com o tempo, ou seja, sua resposta não é estática. 
+                    Em um contexto de controle, um sistema dinâmico pode ser qualquer processo ou dispositivo que evolui ao longo do tempo. 
+                    Pode incluir desde um motor elétrico até um processo químico. 
+                    A análise de sistemas dinâmicos é crucial para o design de estratégias de controle eficientes.
+                </p>
+
+                <h3>Controlador</h3>
+                <p>
+                    Um controlador é um componente essencial em um sistema de controle que toma decisões com base nas informações do sistema e na referência desejada. 
+                    Ele compara a saída real do sistema com a saída desejada (referência) e determina como ajustar o sistema para minimizar a diferença. 
+                    O controlador desempenha um papel crucial na regulação do sistema para garantir que ele responda de maneira adequada e atenda aos requisitos de desempenho. 
+                    Existem diferentes tipos de controladores, e o PID é um dos mais comuns devido à sua versatilidade e eficácia em uma ampla gama de aplicações.
+                </p>
+            </div>
+            <div class="content" id="controlador-pid">
+                <div class="back-btn" onclick="showMenu()">← Voltar</div>
+                <h2>Controlador PID</h2>
+                <p>
+                    Um controlador PID (Proporcional, Integral, Derivativo) é um mecanismo de controle de feedback amplamente
+                    utilizado em sistemas de controle. Ele é usado para corrigir o erro
+                    entre um valor medido e um valor desejado, chamado de valor de referência,ou <i>set point</i>.
+                </p>
+                <h3>As três ações PID básicas são:</h3>
+                <p>
+                    <b>Proporcional (P):</b> A parte proporcional produz uma saída que é proporcional ao erro atual no sistema.
+                    Ela atua no estado transitório do sistema modificando o <i>overshoot</i>
+                    e o tempo de estabilização do sistema.
+                </p>
+                <p>
+                    <b>Integral (I):</b> A parte integral produz uma saída baseada tanto na magnitude do erro quanto na duração
+                    do erro. A saída integral é a soma dos erros instantâneos ao longo do tempo.
+                    Ela atua no estado permanente, reduzindo o erro a zero. A ação integral adiciona um polo à função de
+                    transferência do sistema.
+                </p>
+                <p>
+                    <b>Derivativo (D):</b> A parte derivativa produz uma saída que é baseada na taxa de variação do erro com o
+                    tempo. A ação derivativa modifica o tempo de subida, aumenta o tempo de
+                    estabilização proporcionalmente ao Kd e adiciona um zero á função de tranferência do sistema. Por isso,
+                    deve-se ter cuidado ao usa-la.
+                </p>
+                <h3>Aplicações:</h3>
+                <p> A combinação dessas três ações pode ser ajustada (ou “sintonizada”) para um processo
+                    específico para minimizar o erro e proporcionar controle estável do processo. O controlador
+                    PID é usado em uma variedade de aplicações, desde controle de temperatura até controle de velocidade de
+                    veículos autônomos.
+                </p>
+            </div>
         </div>
     </div>
 </body>
